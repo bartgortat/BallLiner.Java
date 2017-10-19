@@ -1,5 +1,7 @@
 package bg.ballliner.logic.pojo;
 
+import java.util.Objects;
+
 public class Setting {
     private final BoardDimension _boardDimension;
     private final int _colorCount;
@@ -51,6 +53,13 @@ public class Setting {
         
         return equality;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this._boardDimension);
+        hash = 17 * hash + this._colorCount;
+        hash = 17 * hash + this._newBallCount;
+        return hash;
+    }
 }
